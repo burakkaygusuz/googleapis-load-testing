@@ -1,0 +1,36 @@
+### Intellij ###
+.idea
+*.iml
+modules.xml
+.idea/misc.xml
+*.ipr
+
+### Scala ###
+*.class
+*.log
+*.metals
+
+### Gradle ###
+.gradle
+build/
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+/gradle/wrapper/gradle-wrapper.jar
+
+### Gradle Patch ###
+**/build/
+
+##VSCode
+.vscode
+.classpath
+.project
+.settings
+.DS_Store
+.cache
+
+##Project
+gen_java
+build
+bin
+results
