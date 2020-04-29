@@ -6,6 +6,11 @@ plugins {
 group 'org.loadtesting'
 version '1.0-SNAPSHOT'
 
+description = 'Google APIs Load Testing'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
 repositories {
     jcenter()
 }
