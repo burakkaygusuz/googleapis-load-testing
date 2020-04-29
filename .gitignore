@@ -34,3 +34,4 @@ gen_java
 build
 bin
 results
+/src/gatling/resources/gradle.properties
