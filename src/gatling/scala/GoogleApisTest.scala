@@ -9,7 +9,7 @@ class GoogleApisTest extends Simulation {
 
   val httpConfig: HttpProtocolBuilder = http
     .baseUrl("https://www.googleapis.com/blogger/v3/")
-    .header(HttpHeaderNames.Accept, HttpHeaderValues.ApplicationJson)
+    .acceptHeader(HttpHeaderValues.ApplicationJson)
 
   val props = new Properties()
   props.load(this.getClass.getResourceAsStream("gradle.properties"))
@@ -18,13 +18,23 @@ class GoogleApisTest extends Simulation {
 
   val scn: ScenarioBuilder = scenario("Retrieving A Blog")
     .exec(getBlogById(API_KEY, "2399953"))
+    .pause(5)
+    .exec(getBlogByUrl(API_KEY, "https://blogger-developers.googleblog.com"))
 
   def getBlogById(apiKey: String, blogId: String): ChainBuilder = {
     exec(http("Get Blog By Id")
       .get(s"blogs/$blogId")
-      .queryParam("key", apiKey).check(status.is(200)))
+      .queryParam("key", apiKey)
+      .check(status.is(200)))
+  }
+
+  def getBlogByUrl(apiKey: String, blogUrl: String): ChainBuilder = {
+    exec(http("Get Blog By Url")
+      .get("blogs/byurl")
+      .queryParam("key", apiKey)
+      .queryParam("url", blogUrl)
+      .check(status.is(200)))
   }
 
   setUp(scn.inject(atOnceUsers(1)).protocols(httpConfig))
-
 }
