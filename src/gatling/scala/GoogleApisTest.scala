@@ -1,3 +1,4 @@
+import java.io._
 import java.util.Properties
 
 import io.gatling.core.Predef._
@@ -12,7 +13,12 @@ class GoogleApisTest extends Simulation {
     .acceptHeader(HttpHeaderValues.ApplicationJson)
 
   val props = new Properties()
-  props.load(this.getClass.getResourceAsStream("gradle.properties"))
+
+  try props.load(this.getClass.getResourceAsStream("gradle.properties"))
+  catch {
+    case e: FileNotFoundException => println(s"The file read is missing: $e")
+    case e: IOException => println(s"An unexpected error has occurred: $e")
+  }
 
   val API_KEY: String = props.getProperty("API_KEY")
 
