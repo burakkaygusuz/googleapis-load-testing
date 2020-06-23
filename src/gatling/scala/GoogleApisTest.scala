@@ -13,11 +13,12 @@ class GoogleApisTest extends Simulation {
     .acceptHeader(HttpHeaderValues.ApplicationJson)
 
   val props = new Properties()
+  val inputStream = new FileInputStream(new File("src/gatling/resources/gradle.properties"))
 
-  try props.load(this.getClass.getResourceAsStream("gradle.properties"))
+  try props.load(inputStream)
   catch {
-    case e: FileNotFoundException => println(s"The file read is missing: $e")
-    case e: IOException => println(s"An unexpected error has occurred: $e")
+    case e: FileNotFoundException => println(s"The file read is missing: ${e.printStackTrace()}")
+    case e: IOException => println(s"An unexpected error has occurred: ${e.printStackTrace()}")
   }
 
   val API_KEY: String = props.getProperty("API_KEY")
