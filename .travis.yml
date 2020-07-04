@@ -2,6 +2,12 @@ language: scala
 scala:
   - 2.13.2
 jdk: openjdk8
+
+before_install:
+  - curl -s "https://get.sdkman.io" | bash
+  - echo sdkman_auto_answer=true > ~/.sdkman/etc/config
+  - source "/home/travis/.sdkman/bin/sdkman-init.sh"
+  - sdk install gradle
 install: skip
 
 before_cache:
