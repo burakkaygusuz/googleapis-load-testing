@@ -2,6 +2,7 @@ language: scala
 scala:
   - 2.13.2
 jdk: openjdk8
+jdk: openjdk11
 
 before_install:
   - curl -s "https://get.sdkman.io" | bash
