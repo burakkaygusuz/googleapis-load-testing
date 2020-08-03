@@ -1,7 +1,8 @@
+dist: bionic
+
 language: scala
 scala:
-  - 2.13.2
-jdk: openjdk8
+  - 2.13.3
 jdk: openjdk11
 
 before_install:
