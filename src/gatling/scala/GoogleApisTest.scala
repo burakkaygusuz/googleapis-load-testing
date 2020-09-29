@@ -23,7 +23,7 @@ class GoogleApisTest extends Simulation {
 
   val API_KEY: String = props.getProperty("API_KEY")
 
-  val scn: ScenarioBuilder = scenario("Retrieving A Blog")
+  val scn: ScenarioBuilder = scenario("HTTP GET Requests With Authorization")
     .exec(getBlogById(API_KEY, "2399953"))
     .pause(5)
     .exec(getBlogByUrl(API_KEY, "https://blogger-developers.googleblog.com"))
