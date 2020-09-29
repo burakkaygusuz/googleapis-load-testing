@@ -27,6 +27,8 @@ class GoogleApisTest extends Simulation {
     .exec(getBlogById(API_KEY, "2399953"))
     .pause(5)
     .exec(getBlogByUrl(API_KEY, "https://blogger-developers.googleblog.com"))
+    .pause(5)
+    .exec(getPageByBlogIdAndPageId(API_KEY, "2399953", "8251768148820290538"))
 
   def getBlogById(apiKey: String, blogId: String): ChainBuilder = {
     exec(http("Get Blog By Id")
@@ -40,6 +42,13 @@ class GoogleApisTest extends Simulation {
       .get("blogs/byurl")
       .queryParam("key", apiKey)
       .queryParam("url", blogUrl)
+      .check(status.is(200)))
+  }
+
+  def getPageByBlogIdAndPageId(apiKey: String, blogId: String, pageId: String): ChainBuilder = {
+    exec(http("Get Page By Blog Id And Page Id")
+      .get(s"blogs/$blogId/pages/$pageId")
+      .queryParam("key", apiKey)
       .check(status.is(200)))
   }
 
