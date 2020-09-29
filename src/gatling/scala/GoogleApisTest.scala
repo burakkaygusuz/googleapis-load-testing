@@ -52,5 +52,8 @@ class GoogleApisTest extends Simulation {
       .check(status.is(200)))
   }
 
-  setUp(scn.inject(atOnceUsers(1)).protocols(httpConfig))
+  setUp(scn.inject(atOnceUsers(1))
+    .protocols(httpConfig))
+    .assertions(global.responseTime.max.lt(50), global.successfulRequests.percent.gt(95)
+  )
 }
