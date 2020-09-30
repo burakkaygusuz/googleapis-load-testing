@@ -5,7 +5,7 @@ object GatlingRunner {
 
   def main(args: Array[String]): Unit = {
 
-    val simClass = classOf[GoogleApisTest].getName
+    val simClass = classOf[GoogleApisSimulation].getName
 
     val props = new GatlingPropertiesBuilder
     props.simulationClass(simClass)

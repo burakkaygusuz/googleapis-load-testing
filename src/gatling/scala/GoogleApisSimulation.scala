@@ -6,7 +6,7 @@ import io.gatling.core.structure._
 import io.gatling.http.Predef._
 import io.gatling.http.protocol.HttpProtocolBuilder
 
-class GoogleApisTest extends Simulation {
+class GoogleApisSimulation extends Simulation {
 
   val httpConfig: HttpProtocolBuilder = http
     .baseUrl("https://www.googleapis.com/blogger/v3/")
