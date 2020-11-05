@@ -11,10 +11,6 @@ description = 'Google APIs Load Testing'
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
-repositories {
-    jcenter()
-}
-
 dependencies {
     implementation 'org.scala-lang:scala-library:2.13.3'
 }
