@@ -4,7 +4,7 @@ The sample load test application for API of Google Blogger v3.
 
 ## Requirements
 
- - This project requires [Java 8 JDK](https://adoptopenjdk.net/).
+ - This project requires [Java 11 JDK](https://adoptopenjdk.net/).
  - Install and configure [Gradle](https://gradle.org/install/) build tool.
  - Install [Scala](https://www.scala-lang.org/download/) library.
 
