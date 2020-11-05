@@ -30,8 +30,7 @@ build/
 .cache
 
 ##Project
-gen_java
 build
 bin
 results
-/src/gatling/resources/gradle.properties
+/src/gatling/resources/config.properties

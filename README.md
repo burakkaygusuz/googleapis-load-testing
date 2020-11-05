@@ -8,7 +8,7 @@ The sample load test application for API of Google Blogger v3.
  - Install and configure [Gradle](https://gradle.org/install/) build tool.
  - Install [Scala](https://www.scala-lang.org/download/) library.
 
-**Note:** Create **gradle.properties** file into **resources** directory and type ***"API_KEY '"*** and its value.
+**Note:** Create **config.properties** file into **resources** directory and type ***"API_KEY '"*** and its value.
 
 ### Steps to clone execute the tests
 
