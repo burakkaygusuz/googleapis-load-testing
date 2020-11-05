@@ -1,3 +1,5 @@
+package googleapis
+
 import java.io._
 import java.util.Properties
 
@@ -6,14 +8,14 @@ import io.gatling.core.structure._
 import io.gatling.http.Predef._
 import io.gatling.http.protocol.HttpProtocolBuilder
 
-class GoogleApisSimulation extends Simulation {
+class BasicSimulation extends Simulation {
 
   val httpConfig: HttpProtocolBuilder = http
     .baseUrl("https://www.googleapis.com/blogger/v3/")
     .acceptHeader(HttpHeaderValues.ApplicationJson)
 
   val props = new Properties()
-  val inputStream = new FileInputStream(new File("src/gatling/resources/gradle.properties"))
+  val inputStream = new FileInputStream(new File("src/gatling/resources/config.properties"))
 
   try props.load(inputStream)
   catch {
@@ -54,6 +56,6 @@ class GoogleApisSimulation extends Simulation {
 
   setUp(scn.inject(atOnceUsers(1))
     .protocols(httpConfig))
-    .assertions(global.responseTime.max.lt(50), global.successfulRequests.percent.gt(95)
-  )
+    .assertions(global.responseTime.max.lt(1000), global.successfulRequests.percent.gt(95)
+    )
 }
