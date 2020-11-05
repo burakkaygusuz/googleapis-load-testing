@@ -1,23 +1,22 @@
 dist: bionic
-
 language: scala
 scala:
   - 2.13.3
 jdk: openjdk11
-
+env:
+  global:
+    secure: QPGPmf+NCdgTgy2YbJfvl3dpZ++eq0syi2lNankimFkWQtHYE+Zjbcs+ItMVy36L0dnWEhIVoBK6aigmkZSucWVKBQsJRi28de7TfMTgzz7zJYFlGuHcKpo4iyTUOl1uHsUro6b5EJZP15Q7W/MPrV9jMf0LcUttJIWYeGOQsgPku+E1KxY0hznhOqWuqfxGQH90vMTZ7DWWm+jYpYFbuYGmiGtZyEm8pMmSdDuYA23ORQwuYocshoWcUNPyHRQbEKuNruAMlKx2vNQ95JchWZ79WAxHmVDz4PH/ZVyAtkMRRmnjOO6q2g3MI/dZ25cvK7r0I8TObV9S3feyyQ5CJAldgZi+e1PANTXukOSjtSaJwyx3nqEmTlMlojWtiAmPabk8pWvCsuXdmqp26x5GL5z24X/g98FTx8Wa2nGvX6VFRbMf7jUTVOg7eeqG7WrjZ7y45xx6D/NEndJhlmSRzrX9LnQax5RqkUlnAdDLVc0KEAaLHn+T2mWl4d6y3GLHQLA4w3yr4IPHUFi+agfIG6lgtPnvY3pXyhhUQSzzaovjcWDWPEWNJh/bSzMnToUmtE3L1lPSbWN/85wCUs0NVy08zwX9CPfwojyF0oYj1cGvxkm9qNInSE10NM/UJEPyK/SLxgThx2eCiHtBPyen0VY4yFmhRlCOd7/SiT1bgFg=
 before_install:
   - curl -s "https://get.sdkman.io" | bash
   - echo sdkman_auto_answer=true > ~/.sdkman/etc/config
   - source "/home/travis/.sdkman/bin/sdkman-init.sh"
   - sdk install gradle
-install: skip
-
+install: gradle wrapper
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-
-script: gradle gatlingRun
+    - "$HOME/.gradle/caches/"
+    - "$HOME/.gradle/wrapper/"
+script: ./gradlew gatlingRun
