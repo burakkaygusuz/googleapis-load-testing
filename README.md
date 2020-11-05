@@ -15,7 +15,8 @@ The sample load test application for API of Google Blogger v3.
  ```sh
  $ git clone https://github.com/burakkaygusuz/googleapis-load-testing.git
  $ cd googleapis-load-testing
- $ gradle gatlingRun
+ $ gradle wrapper
+ $ ./gradlew gatlingRun
  ```
 
 
